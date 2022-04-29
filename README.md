@@ -6,21 +6,21 @@ This repo implements a deep learning neural network binary classifier using tens
 
 ## Results 
 
--Data Preprocessing 
+**Data Preprocessing**
 
-    -Target variables for model: 'IS_SUCCESSFUL'
+-Target variables for model: 'IS_SUCCESSFUL'
 
-    -Feature variables for model: 'APPLICATION_TYPE', 'AFFILIATION', 'CLASSIFICATION', 'USE_CASE', 'ORGANIZATION', 'STATUS', 'INCOME_AMT', 'SPECIAL_CONSIDERATIONS', 'ASK_AMT'
+-Feature variables for model: 'APPLICATION_TYPE', 'AFFILIATION', 'CLASSIFICATION', 'USE_CASE', 'ORGANIZATION', 'STATUS', 'INCOME_AMT', 'SPECIAL_CONSIDERATIONS', 'ASK_AMT'
 
-    -Non feature/target variables removed from input data: 'EIN', 'NAME'
+-Non feature/target variables removed from input data: 'EIN', 'NAME'
 
--Compiling, Training, and Evaluating Model
+**Compiling, Training, and Evaluating Model**
 
-    -For the intial model I selected 2 hidden layers with 80 and 30 neurons respectively, activated with the relu activation funciton. I selected 80 neurons for the first layer since it was about double the number of input features. I selected the relu function since it is the most common. For the output layer I selected one neuron and the sigmoid activation function since the target is a binary classifier. ![nn_summary](https://github.com/AmairaniR/Neural_Network_Charity_Analysis/blob/main/images/nn_summary.png)
+-For the intial model I selected 2 hidden layers with 80 and 30 neurons respectively, activated with the relu activation funciton. I selected 80 neurons for the first layer since it was about double the number of input features. I selected the relu function since it is the most common. For the output layer I selected one neuron and the sigmoid activation function since the target is a binary classifier. ![nn_summary](https://github.com/AmairaniR/Neural_Network_Charity_Analysis/blob/main/images/nn_summary.png)
 
-    -The initial model was unable to achieve the target model performance of 75%. The inital model's performance was 0.73609. ![nn_accuracy](https://github.com/AmairaniR/Neural_Network_Charity_Analysis/blob/main/images/nn_accuracy.png)
+-The initial model was unable to achieve the target model performance of 75%. The inital model's performance was 0.73609. ![nn_accuracy](https://github.com/AmairaniR/Neural_Network_Charity_Analysis/blob/main/images/nn_accuracy.png)
 
-    -To increase model performance I dropped the 'SPECIAL_CONSIDERATIONS' feature and I bucketed the 'ASK_AMT' feature to only two values. Then I created a function to use with the kerastuner library to run through several hyperparameters for the new optimized model. Kerastuner ran through models with the activation functions relu, tanh, and sigmoid. The hyperparameter for the neurons for the first layer ran between 80 and 120 neurons in steps of 10. The hyperparatmeter for the hidden layers went all the way up to six layers with neurons between 10 and 60 in steps of 10. The best hyperparameter returned by kerastuner was a model with the relu activation function, seven hidden layers, 110 neurons, in the first layer, and 20, 10, 10, 20, 40, and 10 for the respective remaining layers. ![nn_model_function](https://github.com/AmairaniR/Neural_Network_Charity_Analysis/blob/main/images/nn_model_function.png) ![nn_model_kerastuner](https://github.com/AmairaniR/Neural_Network_Charity_Analysis/blob/main/images/nn_kereastuner.png)  
+-To increase model performance I dropped the 'SPECIAL_CONSIDERATIONS' feature and I bucketed the 'ASK_AMT' feature to only two values. Then I created a function to use with the kerastuner library to run through several hyperparameters for the new optimized model. Kerastuner ran through models with the activation functions relu, tanh, and sigmoid. The hyperparameter for the neurons for the first layer ran between 80 and 120 neurons in steps of 10. The hyperparatmeter for the hidden layers went all the way up to six layers with neurons between 10 and 60 in steps of 10. The best hyperparameter returned by kerastuner was a model with the relu activation function, seven hidden layers, 110 neurons, in the first layer, and 20, 10, 10, 20, 40, and 10 for the respective remaining layers. ![nn_model_function](https://github.com/AmairaniR/Neural_Network_Charity_Analysis/blob/main/images/nn_model_function.png) ![nn_model_kerastuner](https://github.com/AmairaniR/Neural_Network_Charity_Analysis/blob/main/images/nn_kereastuner.png)  
 
 ## Summary 
 
